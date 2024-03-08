@@ -55,6 +55,31 @@ end
 
 ## Fixed point iterations
 
+"""
+fixed_point by Aaron Miller
+
+Choosing a function and an initial point: when choosing a function,
+    it is important to note that the derivative at the initial point
+    p0 and the derivative at the eventual fixed point must be less than
+    1. In addition, it is important to note that the 
+
+function fixed_point(f, p0; tol=1e-10, maxit=50)
+    i=1 
+    p=0
+    while i<=maxit
+        p=f(p0)
+        if abs(p-p0)<=tol
+            break
+        end
+        i=i+1
+        p0=p
+    end
+    if i == maxit+1
+        println("Method Failed")
+    end
+    return p, i
+end
+
 
 ## Newtons method
 
